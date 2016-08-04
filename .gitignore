@@ -19,3 +19,10 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore test-related files
+/coverage.data
+/coverage/
+
+#ignore .DS_Store
+.DS_Store
