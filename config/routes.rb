@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'menu/show'
+
   get 'welcome/index'
 
   namespace :blog do
