@@ -1,7 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import 'https://fonts.googleapis.com/css?family=Patrick+Hand';
-@import 'https://fonts.googleapis.com/css?family=Give+You+Glory';
+@import 'https://fonts.googleapis.com/css?family=';
+@import 'https://fonts.googleapis.com/css?family=Give+You+Glory|Delius+Unicase|Coming+Soon|Trochut';
 
 .jumbotron {
   position: relative;
@@ -10,6 +10,7 @@
   height: 100vh;
   background-size: cover;
   overflow: hidden;
+  font-family: 'Delius Unicase', cursive;
   color: #838288; // change text color
   text-align: center;
 }
@@ -20,8 +21,6 @@
 body {
   margin: 0 auto;
   max-width: 70em;
-  font-family: 'Give You Glory', cursive,;
-  font-weight: bold;
 }
 
 .welcome-button {
@@ -29,4 +28,14 @@ body {
     bottom: 20%;
     right: 25%;
     color: #838288 !important;
+}
+
+/*--- menu ---*/
+.menu_navbar {
+  margin-top: 2%;
+  font-family: 'Trochut', cursive;
+}
+
+.menu_body {
+  font-family: 'Coming Soon', cursive;
 }
