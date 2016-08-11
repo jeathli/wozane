@@ -1,5 +1,6 @@
 $navbar-default-bg: #F2FBCF;
 $body-bg: #FFFFFF;
+$btn-primary-bg: #BDB8AD;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -26,8 +27,8 @@ body {
 
 .welcome-button {
     position: fixed;
-    bottom: 20%;
-    right: 25%;
+    bottom: 15%;
+    right: 17%;
     color: #838288 !important;
 }
 
