@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   get 'about/index'
 
   namespace :blog do
-    resources :articles
+    resources :articles do
+      resources :comments
+    end
   end
 
   namespace :gallery do
