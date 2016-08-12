@@ -1,5 +1,6 @@
-$navbar-default-bg: #014421;
-$body-bg: #fa9fba;
+$navbar-default-bg: #F2FBCF;
+$body-bg: #FFFFFF;
+$btn-primary-bg: #BDB8AD;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -7,8 +8,9 @@ $body-bg: #fa9fba;
 
 .jumbotron {
   position: relative;
-   width: 100%;
-  height: 100vh;
+  background: #000 url("wozane_logo.png") center center;
+  width: 100%;
+  height: 89vh;
   background-size: cover;
   overflow: hidden;
   font-family: 'Delius Unicase', cursive;
@@ -25,18 +27,17 @@ body {
 
 .welcome-button {
     position: fixed;
-    bottom: 20%;
+    bottom: 13%;
     right: 25%;
     color: #838288 !important;
 }
 
 /*--- menu ---*/
 .menu_navbar {
-  margin-top: 2%;
   font-family: 'Trochut', cursive;
 }
 
 .menu_body {
   font-family: 'Coming Soon', cursive;
-  background-color: #CDEDC0;
+  background-color: #FBE6D7;
 }

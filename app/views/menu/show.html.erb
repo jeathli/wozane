@@ -9,7 +9,9 @@
 
     <div class="card-block">
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go see something</a>
+      <button class="btn btn-primary">
+        <%= link_to 'Go see something', gallery_photos_path %>
+      </button>
     </div>
   </div>
 
@@ -19,11 +21,45 @@
       <h6 class="card-subtitle text-muted">Support card subtitle</h6>
     </div>
 
-    <img src="https://pixabay.com/pl/szydełkowania-przędza-diy-tkania-1479217/" alt="Card image">
+    <img src="app/assets/images/yarn_ball.png" alt="Card image">
 
     <div class="card-block">
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go read something</a>
+      <button class="btn btn-primary">
+        <%= link_to 'Go read something', blog_articles_path %>
+      </button>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card card-block">
+      <h3 class="card-title">SHOP</h3>
+      <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+    </div>
+
+    <img src="..." alt="Card image">
+
+    <div class="card-block">
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <button class="btn btn-primary">
+        <%= link_to 'Go buy something', shop_index_path %>
+      </button>
+    </div>
+  </div>
+
+  <div class="col-sm-6">
+    <div class="card card-block">
+      <h3 class="card-title">ABOUT ME</h3>
+      <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+    </div>
+
+    <img src="..." alt="Card image">
+
+    <div class="card-block">
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <button class="btn btn-primary">
+        <%= link_to 'Go read something', about_index_path %>
+      </button>
     </div>
   </div>
 </div>
