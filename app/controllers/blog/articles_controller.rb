@@ -1,6 +1,6 @@
 class Blog::ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.all.order("created_at DESC")
   end
 
   def show
@@ -26,10 +26,10 @@ class Blog::ArticlesController < ApplicationController
   end
 
   def update
-  @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
 
-    if @article.update(article_params)
-      redirect_to @article
+    if @article.update(params[:id])
+      redirect_to @article, notice: "article updated"
     else
       render 'edit'
     end
@@ -37,9 +37,9 @@ class Blog::ArticlesController < ApplicationController
 
   def destroy
   @article = Article.find(params[:id])
-  @article.destroy
 
-  redirect_to [:blog, article], notice: "Article deleted"
+  @article.destroy
+  redirect_to blog_articles_path, notice: "Article deleted"
   end
 
   private

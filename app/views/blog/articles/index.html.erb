@@ -1,15 +1,23 @@
+<div style="font-family: 'Coming Soon', cursive;">
+  <%= link_to 'New article', new_blog_article_path %>
+</div>
 
+<div id="articles" class="transitions-enabled">
   <% @articles.each do |article| %>
+    <div class="box">
+      <div class="panel panel-warning">
+        <%= link_to image_tag(article.image.url(:medium)), blog_article_path(article) %><br/>
 
-      <%= article.title %><br/>
-      <%= article.text %><br/>
-      <%= link_to image_tag(article.image.url(:medium)), blog_article_path(article) %><br/>
-      <%= link_to 'Read', blog_article_path(article) %><br/>
-      <%= link_to 'Edit', edit_blog_article_path(article) %><br/>
-      <%= link_to 'Destroy', [:blog, article],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %><br/>
+        <div class="panel-body" style="font-family: 'Coming Soon', cursive;">
+          <%= article.title %><br/>
+        </div>
+
+        <div class="panel-footer" style="font-family: 'Coming Soon', cursive;">
+          <%= link_to 'Edit', edit_blog_article_path(article) %><br/>
+          <%= link_to 'Destroy', [:blog, article], method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <br>
-
-<%= link_to 'New article', new_blog_article_path %>
+</div>

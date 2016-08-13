@@ -1,43 +1,51 @@
-<div>
-  <strong>Title:</strong>
-  <%= @article.title %><hr/>
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel panel-heading centre" style="font-family: 'Coming Soon', cursive;">
+        <strong>Title:</strong>
+        <%= @article.title %><hr/>
+
+
+        <div>
+          <strong>Text:</strong>
+          <%= @article.text %><hr/>
+        </div>
+
+        <div>
+        <%= image_tag @article.image.url(:medium) %><br/>
+        </div>
+
+        <p>Comments</p>
+        <% @article.comments.each do |comment| %>
+        <p>
+          <strong>Commenter:</strong>
+          <%= comment.commenter %>
+        </p>
+
+        <p>
+          <strong>Comment:</strong>
+          <%= comment.body %>
+        </p>
+        <% end %>
+
+        <p>Add a comment:</p>
+        <%= form_for([:blog, @article, @article.comments.build]) do |f| %>
+        <p>
+          <%= f.label :commenter %><br/>
+          <%= f.text_field :commenter %>
+        </p>
+        <p>
+          <%= f.label :body %><br/>
+          <%= f.text_area :body %>
+        </p>
+        <p>
+          <%= f.submit %>
+        </p>
+        <% end %>
+
+        <%= link_to 'Edit', edit_blog_article_path(@article) %>
+        <%= link_to 'Back', blog_articles_path %>
+      </div>
+    </div>
+  </div>
 </div>
-
-<div>
-  <strong>Text:</strong>
-  <%= @article.text %><hr/>
-</div>
-
-<div>
-  <%= image_tag @article.image.url(:medium) %><hr/>
-</div>
-<p>Comments</p>
-<% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
-
-<p>Add a comment:</p>
-<%= form_for([:blog, @article, @article.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to 'Edit', edit_blog_article_path(@article) %>
-<%= link_to 'Back', blog_articles_path %>
