@@ -39,11 +39,11 @@ class Blog::ArticlesController < ApplicationController
   @article = Article.find(params[:id])
   @article.destroy
 
-  redirect_to bolg_articles_path
+  redirect_to [:blog, article], notice: "Article deleted"
   end
 
   private
     def article_params
-      params.require(:article).permit(:title, :text)
+      params.require(:article).permit(:title, :text, :image)
     end
 end
