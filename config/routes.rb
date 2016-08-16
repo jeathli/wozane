@@ -9,9 +9,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'session#logout'
 
   namespace :blog do
-    resources :articles do
-      resources :comments
-    end
+    resources :articles
   end
 
   namespace :gallery do

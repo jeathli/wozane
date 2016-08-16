@@ -31,7 +31,7 @@ class Blog::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
 
     if @article.update(article_params)
-      redirect_to [:blog, @article], notice: "article updated"
+      redirect_to [:blog, @article], notice: "Article updated"
     else
       render 'edit'
     end
