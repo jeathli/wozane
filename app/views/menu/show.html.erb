@@ -1,11 +1,13 @@
-<div class="row menu_body">
+<div class="row">
   <div class="col-sm-6">
     <div class="card card-block">
       <h3 class="card-title">GALLERY</h3>
       <h6 class="card-subtitle text-muted">Support card subtitle</h6>
     </div>
 
-    <img src="..." alt="Card image">
+    <div alt="Card image">
+      <%= link_to(image_tag('gallery.jpg'), gallery_photos_path) %>
+    </div>
 
     <div class="card-block">
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -21,7 +23,9 @@
       <h6 class="card-subtitle text-muted">Support card subtitle</h6>
     </div>
 
-    <img src="app/assets/images/yarn_ball.png" alt="Card image">
+   <div>
+     <%= link_to(image_tag('blog.jpg'), blog_articles_path) %>
+    </div>
 
     <div class="card-block">
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
@@ -37,7 +41,7 @@
       <h6 class="card-subtitle text-muted">Support card subtitle</h6>
     </div>
 
-    <img src="..." alt="Card image">
+    <%= link_to(image_tag('shop.jpg'), shop_index_path) %>
 
     <div class="card-block">
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
