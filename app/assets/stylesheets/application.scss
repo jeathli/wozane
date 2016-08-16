@@ -4,40 +4,14 @@ $btn-primary-bg: #BDB8AD;
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import 'https://fonts.googleapis.com/css?family=Give+You+Glory|Delius+Unicase|Coming+Soon|Trochut';
+@import "https://fonts.googleapis.com/css?family=Give+You+Glory|Delius+Unicase|Coming+Soon|Trochut";
+@import "welcome";
+@import "menu";
 
-.jumbotron {
-  position: relative;
-  background: #000 url("wozane_logo.png") center center;
-  width: 100%;
-  height: 89vh;
-  background-size: cover;
-  overflow: hidden;
-  font-family: 'Delius Unicase', cursive;
-  color: #838288; // change text color
-  text-align: center;
-}
 .push-spaces{
   height: 100px;
 }
 
 body {
   color: #28132E;
-}
-
-.welcome-button {
-    position: fixed;
-    bottom: 13%;
-    right: 25%;
-    color: #838288 !important;
-}
-
-/*--- menu ---*/
-.menu_navbar {
-  font-family: 'Trochut', cursive;
-}
-
-.menu_body {
-  font-family: 'Coming Soon', cursive;
-  background-color: #FBE6D7;
 }

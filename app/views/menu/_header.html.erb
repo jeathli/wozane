@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default" role="navigation">
-  <div class="container">
+  <div class="container" style="font-family: 'Coming Soon', cursive;">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed"
@@ -20,6 +20,12 @@
         <li><%= link_to 'Blog', blog_articles_path %></li>
         <li><%= link_to 'Shop', shop_index_path %></li>
         <li><%= link_to 'About me', about_index_path %></li>
+        <% unless admin? %>
+          <li><%= link_to 'Admin', login_path %></li>
+        <% else %>
+          <li><%= link_to 'Logout', '/logout', method: :delete,
+            data: { confirm: 'Are you sure?' } %></li>
+        <% end %>
       </ul>
 
     </div><!-- /.navbar-collapse -->
