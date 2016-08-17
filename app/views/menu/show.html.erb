@@ -1,65 +1,43 @@
-<div class="row menu_body">
+<div class="row">
   <div class="col-sm-6">
     <div class="card card-block">
       <h3 class="card-title">GALLERY</h3>
-      <h6 class="card-subtitle text-muted">Support card subtitle</h6>
     </div>
-
-    <img src="..." alt="Card image">
-
     <div class="card-block">
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <button class="btn btn-primary">
-        <%= link_to 'Go see something', gallery_photos_path %>
-      </button>
+      <div >
+      <%= link_to(image_tag('gallery.jpg', class:"menu_img"), gallery_photos_path) %>
+      </div>
     </div>
   </div>
 
   <div class="col-sm-6">
     <div class="card card-block">
       <h3 class="card-title">BLOG</h3>
-      <h6 class="card-subtitle text-muted">Support card subtitle</h6>
     </div>
-
-    <img src="app/assets/images/yarn_ball.png" alt="Card image">
-
     <div class="card-block">
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <button class="btn btn-primary">
-        <%= link_to 'Go read something', blog_articles_path %>
-      </button>
+      <%= link_to(image_tag('blog.jpg', class:"menu_img"), blog_articles_path) %>
     </div>
   </div>
 
   <div class="col-sm-6">
     <div class="card card-block">
       <h3 class="card-title">SHOP</h3>
-      <h6 class="card-subtitle text-muted">Support card subtitle</h6>
     </div>
-
-    <img src="..." alt="Card image">
-
     <div class="card-block">
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <button class="btn btn-primary">
-        <%= link_to 'Go buy something', shop_index_path %>
-      </button>
+      <%= link_to(image_tag('shop.jpg', class:"menu_img"), shop_index_path) %>
     </div>
   </div>
 
   <div class="col-sm-6">
     <div class="card card-block">
       <h3 class="card-title">ABOUT ME</h3>
-      <h6 class="card-subtitle text-muted">Support card subtitle</h6>
     </div>
-
-    <img src="..." alt="Card image">
-
     <div class="card-block">
       <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <button class="btn btn-primary">
-        <%= link_to 'Go read something', about_index_path %>
-      </button>
+      <%= link_to(image_tag('idea.jpg', class:"menu_img"), about_index_path) %>
     </div>
   </div>
 </div>
