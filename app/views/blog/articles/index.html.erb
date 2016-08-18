@@ -1,5 +1,5 @@
 <% if admin? %>
-  <div style="font-family: 'Coming Soon', cursive;">
+  <div>
     <%= link_to 'New article', new_blog_article_path %>
   </div>
 <% end %>
@@ -10,12 +10,12 @@
       <div class="panel panel-warning">
         <%= link_to image_tag(article.image.url(:medium)), blog_article_path(article) %><br/>
 
-        <div class="panel-body" style="font-family: 'Coming Soon', cursive;">
+        <div class="panel-body" >
           <%= article.title %><br/>
         </div>
 
         <% if admin? %>
-          <div class="panel-footer" style="font-family: 'Coming Soon', cursive;">
+          <div class="panel-footer" >
             <%= link_to 'Edit', edit_blog_article_path(article) %><br/>
             <%= link_to 'Destroy', [:blog, article], method: :delete,
               data: { confirm: 'Are you sure?' } %>
