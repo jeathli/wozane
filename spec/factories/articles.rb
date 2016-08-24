@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :article do
-    title "Foobar"
-    text  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dign"
-    image
+    title Faker::Lorem.word
+    text  Faker::Lorem.paragraph(2)
+    image Faker::Avatar.image("my-own-slug")
   end
 end
