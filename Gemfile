@@ -13,15 +13,16 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'capybara'
-gem 'faker'
-gem "bower-rails", "~> 0.10.0"
+gem 'bower-rails", "~> 0.10.0'
 
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
+  gem 'faker'
+  gem 'capybara'
   gem 'factory_girl_rails', '~> 4.7'
+  gem 'rails-controller-testing'
 end
 
 group :production do
