@@ -4,18 +4,17 @@ RSpec.describe Blog::ArticlesController, type: :controller do
   let(:article) { FactoryGirl.create(:article) }
 
   describe "GET #index" do
+    let!(:footest_article) { FactoryGirl.create(:article, title: "footest") }
+    let!(:bartest_article) { FactoryGirl.create(:article, title: "bartest") }
+
     before { get :index }
 
     it "returns 200 OK" do
       expect(response).to have_http_status(:ok)
     end
 
-    xit "orders DESC" do
-      article = FactoryGirl.create(:article, :title =>"Foobar")
-      article = FactoryGirl.create(:article, :title => "Barfoo")
-
-      get :index
-      expect(article.ordered("created_at DESC")).to eql(["Barfoo", "Foobar"])
+    it "returns sortered results" do
+      expect(assigns(:articles)).to eq([bartest_article, footest_article])
     end
   end
 
@@ -35,12 +34,10 @@ RSpec.describe Blog::ArticlesController, type: :controller do
 
   describe "GET #new" do
     before do
-      @admin = FactoryGirl.create(:admin)
-      sign_in @admin
       get :new
     end
 
-    xit "renders the new template" do
+    it "renders the new template" do
       expect(response).to render_template("new")
     end
   end
