@@ -7,7 +7,7 @@
 <div id="articles" class="transitions-enabled infinite-scroll clearfix">
   <% @articles.each do |article| %>
     <div class="box">
-      <div class="panel panel-warning">
+      <div class="panel panel-warning box_img">
         <%= link_to image_tag(article.img_url), blog_article_path(article) %><br/>
 
         <div class="panel-body" >
