@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'menu/show'
-  get 'welcome/index'
-  get 'shop/index'
-  get 'about/index'
+  get 'home' => 'static_pages#home'
+  get 'shop' => 'static_pages#shop'
+  get 'about' => 'static_pages#about'
 
   get 'login' => 'session#login'
   post 'login' => 'session#create'
@@ -16,5 +15,5 @@ Rails.application.routes.draw do
     resources :photos
   end
 
-  root 'welcome#index'
+  root 'static_pages#welcome'
 end
