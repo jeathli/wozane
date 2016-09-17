@@ -5,8 +5,16 @@ $btn-primary-bg: #BDB8AD;
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "https://fonts.googleapis.com/css?family=Give+You+Glory|Delius+Unicase|Coming+Soon|Trochut";
+@import 'masonry/basic';
+@import 'masonry/centered';
+@import 'masonry/fluid';
+@import 'masonry/gutters';
+@import 'masonry/infinitescroll';
+@import 'masonry/right-to-left';
+@import 'masonry/transitions';
 @import "welcome";
 @import "menu";
+@import "blog/articles";
 
 body {
   color: #28132E;

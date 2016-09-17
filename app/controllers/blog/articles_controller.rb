@@ -2,7 +2,7 @@ class Blog::ArticlesController < ApplicationController
   before_action :authenticate, except: [:index, :show]
 
   def index
-    @articles = Article.all.order("created_at DESC")
+    @articles = Article.all.ordered
   end
 
   def show
@@ -14,7 +14,7 @@ class Blog::ArticlesController < ApplicationController
   end
 
   def create
-     @article = Article.new(article_params)
+    @article = Article.new(article_params)
 
     if @article.save
       redirect_to blog_articles_path, notice: "Article saved"
@@ -38,10 +38,10 @@ class Blog::ArticlesController < ApplicationController
   end
 
   def destroy
-  @article = Article.find(params[:id])
+    @article = Article.find(params[:id])
 
-  @article.destroy
-  redirect_to blog_articles_path, notice: "Article deleted"
+    @article.destroy
+    redirect_to blog_articles_path, notice: "Article deleted"
   end
 
   private

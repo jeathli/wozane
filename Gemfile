@@ -19,14 +19,11 @@ group :development, :test do
   gem 'sqlite3'
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.5'
+  gem 'shoulda-matchers', '~>3.1'
   gem 'faker'
   gem 'capybara'
   gem 'factory_girl_rails', '~> 4.7'
   gem 'rails-controller-testing'
-end
-
-group :test do
-  gem 'shoulda-matchers', '~>3.1'
 end
 
 group :production do
