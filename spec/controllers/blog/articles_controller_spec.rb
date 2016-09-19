@@ -1,11 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Blog::ArticlesController, type: :controller do
-  let(:article) { FactoryGirl.create(:article) }
-
   describe "GET #index" do
-    let!(:footest_article) { FactoryGirl.create(:article, title: "footest") }
-    let!(:bartest_article) { FactoryGirl.create(:article, title: "bartest") }
+    let!(:older_article) { FactoryGirl.create(:article, created_at: 1.hour.ago) }
+    let!(:newer_article) { FactoryGirl.create(:article) }
 
     before { get :index }
 
@@ -13,32 +11,90 @@ RSpec.describe Blog::ArticlesController, type: :controller do
       expect(response).to have_http_status(:ok)
     end
 
+    it "renders the index template" do
+      expect(response).to render_template("index")
+    end
+
     it "returns sortered results" do
-      expect(assigns(:articles)).to eq([bartest_article, footest_article])
+      expect(assigns(:articles)).to eq([newer_article, older_article])
     end
   end
 
   describe "GET #show" do
+    let!(:article) { FactoryGirl.create(:article) }
+
     before do
-      get :show, params: {id: article.to_param}
+      get :show, params: {id: article.id}
     end
 
-    it "assigns the requested article as @article" do
-      expect(assigns(:article)).to eq(article)
+    it "returns 200 OK" do
+      expect(response).to have_http_status(:ok)
     end
 
     it "renders the show template" do
       expect(response).to render_template("show")
     end
+
+    it "assigns the requested article as @article" do
+      expect(assigns(:article)).to eq(article)
+    end
   end
 
   describe "GET #new" do
-    before do
-      get :new
+    context "unlogged user" do
+      before do
+        get :new
+      end
+
+      it "redirects to login page" do
+        expect(response).to redirect_to(login_path)
+      end
     end
 
-    it "renders the new template" do
-      expect(response).to render_template("new")
+    context "logged user" do
+      before do
+        session[:admin] = true
+        get :new
+      end
+
+      it "returns 200 OK" do
+        expect(response).to have_http_status(:ok)
+      end
+
+      it "assigns the requested as @article" do
+        expect(assigns(:article)).to be_a_new(Article)
+      end
+
+      it "renders the new template" do
+        expect(response).to render_template("new")
+      end
+    end
+  end
+
+  describe "POST #create" do
+    context "unlogged user" do
+      before do
+        post :create
+      end
+
+      it "redirects to login page" do
+        expect(response).to redirect_to(login_path)
+      end
+    end
+
+    context "valid params" do
+      before do
+      session[:admin] = true
+        post :create, params: { article: {
+          title: "Testbar",
+          text: "feel the love",
+          img_url: 'http://example.com/image.jpg'
+        } }
+      end
+
+      it "redirects to created_article" do
+        expect(response).to redirect_to(blog_articles_path)
+      end
     end
   end
 end
