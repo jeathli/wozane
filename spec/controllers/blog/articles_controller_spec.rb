@@ -84,7 +84,7 @@ RSpec.describe Blog::ArticlesController, type: :controller do
 
     context "valid params" do
       before do
-      session[:admin] = true
+        session[:admin] = true
         post :create, params: { article: {
           title: "Testbar",
           text: "feel the love",
@@ -94,6 +94,52 @@ RSpec.describe Blog::ArticlesController, type: :controller do
 
       it "redirects to created_article" do
         expect(response).to redirect_to(blog_articles_path)
+      end
+    end
+
+    context "invalid params" do
+      before do
+        session[:admin] = true
+        post :create, params: { article: {
+          title: "Foo",
+          text: "feel the love",
+          img_url: 'http://example.com/image.jpg'
+        } }
+      end
+
+      it "re-renders the 'new' template" do
+        expect(response).to render_template(:new)
+      end
+
+      it "raises error" do
+        expect { Article.new.foo }.to raise_error
+      end
+    end
+  end
+
+  describe "PUT #update" do
+    let(:article) { FactoryGirl.create(:article) }
+
+    context "valid params" do
+      let(:new_article) { {
+        title: "Testbar",
+        text: "feel the love",
+        img_url: 'http://example.com/image.jpg'
+      }}
+
+      before do
+        session[:admin] = true
+        put :update, params: { article: {
+          title: "Foobar"
+        } }
+      end
+
+      it "assigns the requested article as @article" do
+        expect(assigns(:article)).to eq(article)
+      end
+
+      xit "renders edit template" do
+        expect(response).to render_template(:edit)
       end
     end
   end
