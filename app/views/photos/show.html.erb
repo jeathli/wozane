@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel panel-heading centre" >
+      <h1><%= @photo.title %></h1><hr/>
+      <%= image_tag @photoe.img_url %><br/>
+    </div>
+
+    <% if admin? %>
+      <div>
+        <%= link_to 'Edit', edit_photo_path(@photo) %>
+      </div>
+    <% end %>
+
+    <%= link_to 'Back', photos_path %>
+  </div>
+</div>
