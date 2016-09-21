@@ -1,0 +1,31 @@
+<div>
+  <h1>Gallery full of beautiful ideas</h1>
+</div>
+
+<% if admin? %>
+  <div>
+    <%= link_to 'New photo', new_photo_path %>
+  </div>
+<% end %>
+
+<div id="photos" class="transitions-enabled">
+  <% @photos.each do |photo| %>
+    <div class="box">
+      <div class="panel panel-warning">
+        <%= link_to(image_tag(photo.img_url), photo_path(photo)) %><br/>
+
+        <div class="panel-body" >
+          <%= photo.title %><br/>
+        </div>
+
+        <% if admin? %>
+          <div class="panel-footer" >
+            <%= link_to 'Edit', photo_path(photo) %><br/>
+            <%= link_to 'Destroy', [photo], method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

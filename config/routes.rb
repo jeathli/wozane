@@ -7,12 +7,10 @@ Rails.application.routes.draw do
   post 'login' => 'session#create'
   delete 'logout' => 'session#logout'
 
+  resources :photos
+
   namespace :blog do
     resources :articles
-  end
-
-  namespace :gallery do
-    resources :photos
   end
 
   root 'static_pages#welcome'
