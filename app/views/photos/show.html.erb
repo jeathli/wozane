@@ -3,7 +3,7 @@
     <div class="panel panel-heading centre" >
       <h1><%= @photo.title %></h1><hr/>
       <%= image_tag @photo.img_url %><hr/>
-      <%= @photo.text %><hr/>
+      <%= link_to @photo.text, @photo.text %><hr/>
     </div>
 
     <% if admin? %>
