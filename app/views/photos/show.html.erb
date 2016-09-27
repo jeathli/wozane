@@ -2,7 +2,7 @@
   <div class="panel panel-default">
     <div class="panel panel-heading centre" >
       <h1><%= @photo.title %></h1><hr/>
-      <%= link_to 'Source', @photo.text %><hr/>
+      <%= link_to 'Source', @photo.text, :target => "_blank" %><hr/>
       <%= image_tag @photo.img_url %><hr/>
     </div>
 
