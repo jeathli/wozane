@@ -4,7 +4,7 @@
 
 <% if admin? %>
   <div>
-    <%= link_to 'New photo', new_photo_path %>
+    <h4><%= link_to 'New photo', new_photo_path %></h4>
   </div>
 <% end %>
 
@@ -12,15 +12,15 @@
   <% @photos.each do |photo| %>
     <div class="box">
       <div class="panel panel-warning">
-        <%= link_to(image_tag(photo.img_url), photo_path(photo)) %><br/>
-
+        <br/><%= photo.title %><hr/>
+        <%= image_tag(photo.img_url) %>
         <div class="panel-body" >
-          <%= photo.title %><br/>
+          <%= link_to 'Source', photo.text, :target => "_blank" %>
         </div>
 
         <% if admin? %>
           <div class="panel-footer" >
-            <%= link_to 'Edit', photo_path(photo) %><br/>
+            <%= link_to 'Edit', edit_photo_path(photo) %><br/>
             <%= link_to 'Destroy', [photo], method: :delete,
               data: { confirm: 'Are you sure?' } %>
           </div>

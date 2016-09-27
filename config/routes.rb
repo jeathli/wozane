@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post 'login' => 'session#create'
   delete 'logout' => 'session#logout'
 
-  resources :photos
+  resources :photos, except: [:show]
 
   namespace :blog do
     resources :articles
