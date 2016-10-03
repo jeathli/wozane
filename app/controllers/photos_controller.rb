@@ -1,12 +1,8 @@
 class PhotosController < ApplicationController
-  before_action :authenticate, except: [:index, :show]
+  before_action :authenticate, except: [:index]
 
   def index
     @photos = Photo.all.ordered
-  end
-
-  def show
-    @photo = Photo.find(params[:id])
   end
 
   def new

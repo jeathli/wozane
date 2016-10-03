@@ -17,7 +17,7 @@ class Blog::ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to @photo, notice: "Article saved"
+      redirect_to [:blog, @aricle], notice: "Article saved"
     else
       render 'new'
     end

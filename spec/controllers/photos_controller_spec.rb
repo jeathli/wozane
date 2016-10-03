@@ -20,26 +20,6 @@ RSpec.describe PhotosController, type: :controller do
     end
   end
 
-  describe "GET #show" do
-    let!(:photo) { FactoryGirl.create(:photo) }
-
-    before do
-      get :show, params: {id: photo.id}
-    end
-
-    it "returns 200 OK" do
-      expect(response).to have_http_status(:ok)
-    end
-
-    it "renders the show template" do
-      expect(response).to render_template("show")
-    end
-
-    it "assigns the requested photo as @photo" do
-      expect(assigns(:photo)).to eq(photo)
-    end
-  end
-
   describe "GET #new" do
     context "unlogged user" do
       before do
@@ -92,7 +72,7 @@ RSpec.describe PhotosController, type: :controller do
         } }
       end
 
-      it "redirects to created_article" do
+      it "redirects to created_photo" do
         expect(response).to redirect_to(photos_path)
       end
     end
@@ -100,14 +80,14 @@ RSpec.describe PhotosController, type: :controller do
     context "invalid params" do
       before do
         session[:admin] = true
-        post :create, params: { article: {
+        post :create, params: { photo: {
           title: "Foo",
           text: "feel the love",
           img_url: 'http://example.com/image.jpg'
         } }
       end
 
-      it "re-renders the 'new' template" do
+      it "renders the 'new' template" do
         expect(response).to render_template(:new)
       end
 
@@ -129,9 +109,9 @@ RSpec.describe PhotosController, type: :controller do
 
       before do
         session[:admin] = true
-        put :update, params: { photo: {
+        process :update, method: :put, params: {
           title: "Foobar"
-        } }
+        }
       end
 
       it "assigns the requested photo as @photo" do
